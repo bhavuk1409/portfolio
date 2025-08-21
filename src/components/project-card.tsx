@@ -21,7 +21,8 @@ import {
   Lightbulb,
 } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from './ui/alert';
-import { useFormState, useFormStatus } from 'react-dom';
+import { useActionState } from 'react';
+import { useFormStatus } from 'react-dom';
 import { type ProjectStatementInput } from '@/ai/flows/project-statement-generator';
 
 type Project = {
@@ -78,7 +79,7 @@ function GenerateButton() {
 }
 
 export function ProjectCard({ project, userSkills }: ProjectCardProps) {
-  const [state, formAction] = useFormState(generateStatementAction, {});
+  const [state, formAction] = useActionState(generateStatementAction, {});
 
   return (
     <Card className="flex h-full flex-col">
