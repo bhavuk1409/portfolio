@@ -56,15 +56,15 @@ export function AnimatedCode({ name, skills }: AnimatedCodeProps) {
   }, [fullCode]);
 
   return (
-    <div className="bg-[#1E1E1E] border border-cyan-400/20 rounded-lg shadow-2xl shadow-cyan-500/10 w-full h-full">
-      <div className="flex items-center gap-2 bg-[#333] px-4 py-2 rounded-t-lg">
+    <div className="bg-card border border-border rounded-lg shadow-2xl shadow-primary/10 w-full h-full">
+      <div className="flex items-center gap-2 bg-muted/50 px-4 py-2 rounded-t-lg">
         <div className="h-3 w-3 rounded-full bg-red-500"></div>
         <div className="h-3 w-3 rounded-full bg-yellow-500"></div>
         <div className="h-3 w-3 rounded-full bg-green-500"></div>
       </div>
       <pre className="p-4 text-sm md:text-base font-mono whitespace-pre-wrap">
         <code dangerouslySetInnerHTML={{ __html: displayedCode }} />
-        <span className="inline-block w-2 h-4 bg-white animate-pulse" />
+        <span className="inline-block w-2 h-4 bg-foreground animate-pulse" />
       </pre>
     </div>
   );

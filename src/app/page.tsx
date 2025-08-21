@@ -108,12 +108,11 @@ export default function Home() {
 
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
-          <a href="#" className="text-2xl font-bold text-cyan-400">
-            {/* {personalInfo.name.split(' ')[0].toUpperCase()} */}
+          <a href="#" className="text-2xl font-bold text-primary">
           </a>
           <nav className="hidden space-x-6 text-sm font-medium md:flex">
             {navLinks.map(link => (
-              <a key={link.href} href={link.href} className="transition-colors hover:text-cyan-400">
+              <a key={link.href} href={link.href} className="transition-colors hover:text-primary">
                 {link.label.toUpperCase()}
               </a>
             ))}
@@ -126,16 +125,16 @@ export default function Home() {
           <div className="space-y-6">
             <p className="text-2xl">Hello,</p>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-              This is <span className="text-cyan-400">{personalInfo.name}</span>, I'm a Professional Software Developer.
+              This is <span className="text-primary">{personalInfo.name}</span>, I'm a Professional Software Developer.
             </h1>
             <div className="flex gap-4">
-               <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-cyan-400">
+               <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-primary">
                 <Github size={28} />
               </a>
-               <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground transition-colors hover:text-cyan-400">
+               <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground transition-colors hover:text-primary">
                 <LinkedinIcon className="h-7 w-7" />
               </a>
-              <a href={`mailto:${personalInfo.email}`} aria-label="Email" className="text-muted-foreground transition-colors hover:text-cyan-400">
+              <a href={`mailto:${personalInfo.email}`} aria-label="Email" className="text-muted-foreground transition-colors hover:text-primary">
                 <Mail size={28} />
               </a>
             </div>
@@ -156,7 +155,7 @@ export default function Home() {
 
         <div className="space-y-24">
           <section id="about">
-             <h2 className="mb-8 text-3xl font-bold tracking-tight text-cyan-400">
+             <h2 className="mb-8 text-3xl font-bold tracking-tight text-primary">
                 About Me
              </h2>
             <p className="text-lg leading-relaxed text-foreground/80">
@@ -165,16 +164,16 @@ export default function Home() {
           </section>
 
           <section id="experience">
-            <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-cyan-400">
+            <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-primary">
               <Briefcase className="h-8 w-8" /> Work Experience
             </h2>
-            <div className="space-y-8 relative border-l-2 border-cyan-400/30">
+            <div className="space-y-8 relative border-l-2 border-primary/30">
               {workExperience.map((exp, index) => (
-                <Card key={index} className="relative pl-8 md:pl-12 bg-transparent border-0 shadow-none before:content-[''] before:absolute before:left-[-9px] before:top-1 before:w-4 before:h-4 before:rounded-full before:bg-cyan-400">
+                <Card key={index} className="relative pl-8 md:pl-12 bg-transparent border-0 shadow-none before:content-[''] before:absolute before:left-[-9px] before:top-1 before:w-4 before:h-4 before:rounded-full before:bg-primary">
                   <CardHeader className="p-0">
                     <div className="flex flex-col sm:flex-row justify-between sm:items-center">
                       <CardTitle className="text-2xl">{exp.role}</CardTitle>
-                      <Badge variant="outline" className="mt-2 sm:mt-0 border-cyan-400/50 text-cyan-400">{exp.duration}</Badge>
+                      <Badge variant="outline" className="mt-2 sm:mt-0 border-primary/50 text-primary">{exp.duration}</Badge>
                     </div>
                     <CardDescription className="text-lg">
                       {exp.company} - {exp.location}
@@ -193,18 +192,18 @@ export default function Home() {
           </section>
 
           <section id="projects">
-            <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-cyan-400">
+            <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-primary">
               <BookOpen className="h-8 w-8" /> Projects
             </h2>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               {projects.map((project, index) => (
-                <ProjectCard key={index} project={project} userSkills={technicalSkills.all} />
+                <ProjectCard key={index} project={project} />
               ))}
             </div>
           </section>
 
           <section id="skills">
-            <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-cyan-400">
+            <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-primary">
               <Terminal className="h-8 w-8" /> Technical Skills
             </h2>
             <Card className="bg-card/50">
@@ -218,7 +217,7 @@ export default function Home() {
           </section>
 
           <section id="contact">
-            <h2 className="mb-8 text-center text-3xl font-bold tracking-tight text-cyan-400">
+            <h2 className="mb-8 text-center text-3xl font-bold tracking-tight text-primary">
                 Get in Touch
             </h2>
             <Card className="max-w-2xl mx-auto bg-card/50">
