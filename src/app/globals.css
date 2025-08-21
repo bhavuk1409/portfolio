@@ -13,8 +13,8 @@
     --popover: 240 4% 8%;
     --popover-foreground: 240 5% 95%;
  
-    --primary: 45 96% 54%; /* Vibrant Yellow */
-    --primary-foreground: 45 100% 5%;
+    --primary: 25 95% 53%; /* Vibrant Orange */
+    --primary-foreground: 25 100% 5%;
  
     --secondary: 0 84% 60%; /* Vibrant Red */
     --secondary-foreground: 0 100% 95%;
@@ -30,7 +30,7 @@
 
     --border: 240 4% 18%;
     --input: 240 4% 18%;
-    --ring: 45 96% 54%;
+    --ring: 25 95% 53%;
  
     --radius: 0.5rem;
   }
