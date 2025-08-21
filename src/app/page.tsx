@@ -34,23 +34,6 @@ const personalInfo = {
   bio: "A passionate and driven Computer Science student with a strong foundation in AI/ML, web development, and competitive programming. I thrive on solving complex problems and building innovative solutions that push the boundaries of technology.",
 };
 
-const education = [
-  {
-    institution: "Bennett University",
-    location: "Greater Noida, Uttar Pradesh, India",
-    degree: "Bachelor of Technology (B.Tech) in Computer Science",
-    cgpa: "9.0/10",
-    duration: "Expected Graduation: 2027",
-  },
-  {
-    institution: "Amarnath Vidya Ashram Senior Secondary School",
-    location: "Mathura, Uttar Pradesh, India",
-    degree: "Class XII (CBSE)",
-    cgpa: "Percentage: 90%",
-    duration: "Graduated: 2023",
-  },
-];
-
 const workExperience = [
   {
     role: "Machine Learning Intern",
@@ -110,19 +93,10 @@ const technicalSkills = {
   }
 };
 
-const achievements = [
-  "Maintained a consistent CGPA of 9.0/10 in B.Tech (CSE) at Bennett University.",
-  "Selected for a competitive on-site academic internship at NUS, Singapore, focusing on AI/ML and cloud deployments.",
-  "Certified in 'Improving Deep Neural Networks' by DeepLearning.AI and 'Data Structures' by UC San Diego.",
-  "Actively participated in multiple hackathons and coding competitions, building innovative AI-driven solutions.",
-  "Regularly solve DSA and competitive programming challenges on platforms like LeetCode.",
-];
-
 const navLinks = [
   { href: '#about', label: 'About' },
   { href: '#experience', label: 'Experience' },
   { href: '#skills', label: 'Skills' },
-  { href: '#education', label: 'Education' },
   { href: '#projects', label: 'Projects' },
   { href: '#contact', label: 'Contact' },
 ];
@@ -135,7 +109,7 @@ export default function Home() {
       <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm">
         <div className="container mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
           <a href="#" className="text-2xl font-bold text-cyan-400">
-            {personalInfo.name.split(' ')[0].toUpperCase()}
+            {/* {personalInfo.name.split(' ')[0].toUpperCase()} */}
           </a>
           <nav className="hidden space-x-6 text-sm font-medium md:flex">
             {navLinks.map(link => (
@@ -239,42 +213,6 @@ export default function Home() {
                 <SkillCategory title="Machine Learning & AI" skills={technicalSkills.ml_ai} />
                 <SkillCategory title="Web Development & Backend" skills={technicalSkills.web_backend} />
                 <SkillCategory title="Problem Solving" skills={technicalSkills.problem_solving} />
-              </CardContent>
-            </Card>
-          </section>
-
-          <section id="education">
-            <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-cyan-400">
-              <GraduationCap className="h-8 w-8" /> Education
-            </h2>
-            <div className="space-y-8">
-              {education.map((edu, index) => (
-                <Card key={index} className="bg-card/50">
-                  <CardHeader>
-                    <CardTitle className="text-2xl">{edu.institution}</CardTitle>
-                    <CardDescription className="text-lg">{edu.location}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-lg">{edu.degree}</p>
-                    <p className="text-muted-foreground">{edu.cgpa}</p>
-                    <p className="text-sm text-muted-foreground">{edu.duration}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
-          
-          <section id="achievements">
-            <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-cyan-400">
-              <Award className="h-8 w-8" /> Achievements
-            </h2>
-            <Card className="bg-card/50">
-              <CardContent className="p-6">
-                <ul className="list-disc space-y-3 pl-5 text-muted-foreground">
-                  {achievements.map((ach, i) => (
-                    <li key={i} className="text-lg">{ach}</li>
-                  ))}
-                </ul>
               </CardContent>
             </Card>
           </section>
