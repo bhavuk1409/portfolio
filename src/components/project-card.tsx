@@ -62,7 +62,7 @@ async function generateStatementAction(
 function GenerateButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" variant="outline" size="sm" disabled={pending}>
+    <Button type="submit" variant="outline" size="sm" disabled={pending} className="transition-transform duration-300 hover:scale-105">
       {pending ? (
         <>
           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -82,7 +82,7 @@ export function ProjectCard({ project, userSkills }: ProjectCardProps) {
   const [state, formAction] = useActionState(generateStatementAction, {});
 
   return (
-    <Card className="flex h-full flex-col">
+    <Card className="flex h-full flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
       <CardHeader>
         <div className="flex justify-between items-start">
             <CardTitle className="font-headline">{project.title}</CardTitle>
@@ -93,7 +93,7 @@ export function ProjectCard({ project, userSkills }: ProjectCardProps) {
       <CardContent className="flex-grow space-y-4">
         <div className="flex flex-wrap gap-2">
           {project.tech.map((tech, index) => (
-            <Badge key={index} variant="secondary" className="font-code">
+            <Badge key={index} variant="secondary" className="font-code transition-transform duration-300 hover:scale-110 cursor-pointer">
               {tech}
             </Badge>
           ))}
@@ -101,13 +101,13 @@ export function ProjectCard({ project, userSkills }: ProjectCardProps) {
       </CardContent>
       <CardFooter className="flex-col items-start gap-4">
         <div className="flex gap-2">
-          <Button variant="default" asChild size="sm">
+          <Button variant="default" asChild size="sm" className="transition-transform duration-300 hover:scale-105">
             <a href={project.repo} target="_blank" rel="noopener noreferrer">
               <Github className="mr-2 h-4 w-4" /> GitHub
             </a>
           </Button>
           {project.demo && (
-            <Button variant="secondary" asChild size="sm">
+            <Button variant="secondary" asChild size="sm" className="transition-transform duration-300 hover:scale-105">
               <a href={project.demo} target="_blank" rel="noopener noreferrer">
                 <LinkIcon className="mr-2 h-4 w-4" /> Live Demo
               </a>
@@ -123,10 +123,10 @@ export function ProjectCard({ project, userSkills }: ProjectCardProps) {
             <GenerateButton />
           </form>
           {state.statement && (
-            <Alert className="mt-4 bg-secondary">
-              <Lightbulb className="h-4 w-4" />
+            <Alert className="mt-4 border-primary/50 bg-primary/10">
+              <Lightbulb className="h-4 w-4 text-primary" />
               <AlertTitle className="text-primary">AI-Generated Insight</AlertTitle>
-              <AlertDescription>{state.statement}</AlertDescription>
+              <AlertDescription className="text-primary-foreground/80">{state.statement}</AlertDescription>
             </Alert>
           )}
           {state.error && (

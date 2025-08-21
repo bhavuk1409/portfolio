@@ -135,22 +135,22 @@ export default function Home() {
           </div>
           <div className="mt-6 flex justify-center md:justify-start gap-2">
             <Button variant="outline" size="icon" asChild>
-              <a href={`mailto:${personalInfo.email}`} aria-label="Email">
+              <a href={`mailto:${personalInfo.email}`} aria-label="Email" className="transition-transform duration-300 hover:scale-110">
                 <Mail />
               </a>
             </Button>
             <Button variant="outline" size="icon" asChild>
-              <a href={`tel:${personalInfo.phone}`} aria-label="Phone">
+              <a href={`tel:${personalInfo.phone}`} aria-label="Phone" className="transition-transform duration-300 hover:scale-110">
                 <Phone />
               </a>
             </Button>
             <Button variant="outline" size="icon" asChild>
-              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="transition-transform duration-300 hover:scale-110">
                 <Github />
               </a>
             </Button>
             <Button variant="outline" size="icon" asChild>
-              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="transition-transform duration-300 hover:scale-110">
                 <LinkedinIcon />
               </a>
             </Button>
@@ -159,6 +159,9 @@ export default function Home() {
 
         <div className="grid grid-cols-1 gap-12">
           <section id="about">
+             <h2 className="mb-6 text-2xl font-bold tracking-tight text-primary">
+                <a href="#about" className="section-header-link">About Me</a>
+             </h2>
             <p className="text-lg leading-relaxed text-foreground/90">
               {personalInfo.bio}
             </p>
@@ -166,11 +169,11 @@ export default function Home() {
 
           <section id="experience">
             <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold tracking-tight text-primary">
-              <Briefcase className="h-6 w-6" /> Work Experience
+              <Briefcase className="h-6 w-6" /> <a href="#experience" className="section-header-link">Work Experience</a>
             </h2>
             <div className="space-y-6">
               {workExperience.map((exp, index) => (
-                <Card key={index}>
+                <Card key={index} className="transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
                   <CardHeader>
                     <div className="flex flex-col sm:flex-row justify-between sm:items-center">
                       <CardTitle>{exp.role}</CardTitle>
@@ -194,7 +197,7 @@ export default function Home() {
 
           <section id="projects">
             <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold tracking-tight text-primary">
-              <BookOpen className="h-6 w-6" /> Projects
+              <BookOpen className="h-6 w-6" /> <a href="#projects" className="section-header-link">Projects</a>
             </h2>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {projects.map((project, index) => (
@@ -205,9 +208,9 @@ export default function Home() {
 
           <section id="skills">
             <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold tracking-tight text-primary">
-              <Terminal className="h-6 w-6" /> Technical Skills
+              <Terminal className="h-6 w-6" /> <a href="#skills" className="section-header-link">Technical Skills</a>
             </h2>
-            <Card>
+            <Card className="transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
               <CardContent className="p-6 space-y-6">
                 <SkillCategory title="Programming Languages" skills={technicalSkills.languages} />
                 <SkillCategory title="Machine Learning & AI" skills={technicalSkills.ml_ai} />
@@ -219,11 +222,11 @@ export default function Home() {
 
           <section id="education">
             <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold tracking-tight text-primary">
-              <GraduationCap className="h-6 w-6" /> Education
+              <GraduationCap className="h-6 w-6" /> <a href="#education" className="section-header-link">Education</a>
             </h2>
             <div className="space-y-6">
               {education.map((edu, index) => (
-                <Card key={index}>
+                <Card key={index} className="transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
                   <CardHeader>
                     <CardTitle>{edu.institution}</CardTitle>
                     <CardDescription>{edu.location}</CardDescription>
@@ -240,9 +243,9 @@ export default function Home() {
           
           <section id="achievements">
             <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold tracking-tight text-primary">
-              <Award className="h-6 w-6" /> Achievements
+              <Award className="h-6 w-6" /> <a href="#achievements" className="section-header-link">Achievements</a>
             </h2>
-            <Card>
+            <Card className="transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
               <CardContent className="p-6">
                 <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
                   {achievements.map((ach, i) => (
@@ -254,8 +257,10 @@ export default function Home() {
           </section>
 
           <section id="contact">
-            <h2 className="mb-6 text-center text-2xl font-bold tracking-tight text-primary">Get in Touch</h2>
-            <Card className="max-w-2xl mx-auto">
+            <h2 className="mb-6 text-center text-2xl font-bold tracking-tight text-primary">
+                <a href="#contact" className="section-header-link">Get in Touch</a>
+            </h2>
+            <Card className="max-w-2xl mx-auto transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
                 <CardHeader>
                     <CardTitle>Contact Me</CardTitle>
                     <CardDescription>
@@ -282,7 +287,7 @@ const SkillCategory = ({ title, skills }: { title: string; skills: string[] }) =
     <h3 className="mb-3 text-lg font-semibold text-foreground/90">{title}</h3>
     <div className="flex flex-wrap gap-2">
       {skills.map((skill, index) => (
-        <Badge key={index} variant="secondary" className="font-mono text-sm">{skill}</Badge>
+        <Badge key={index} variant="secondary" className="font-mono text-sm transition-transform duration-300 hover:scale-110 cursor-pointer">{skill}</Badge>
       ))}
     </div>
   </div>
