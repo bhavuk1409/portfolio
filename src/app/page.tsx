@@ -23,6 +23,7 @@ import { LinkedinIcon } from "@/components/icons";
 import { ProjectCard } from "@/components/project-card";
 import { ContactForm } from "@/components/contact-form";
 import { AnimatedCode } from "@/components/animated-code";
+import { AnimatedSection } from "@/components/animated-section";
 
 const personalInfo = {
   name: "Bhavuk Agrawal",
@@ -154,16 +155,16 @@ export default function Home() {
 
 
         <div className="space-y-24">
-          <section id="about">
+          <AnimatedSection id="about">
              <h2 className="mb-8 text-3xl font-bold tracking-tight text-primary">
                 About Me
              </h2>
             <p className="text-lg leading-relaxed text-foreground/80">
               {personalInfo.bio}
             </p>
-          </section>
+          </AnimatedSection>
 
-          <section id="experience">
+          <AnimatedSection id="experience">
             <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-primary">
               <Briefcase className="h-8 w-8" /> Work Experience
             </h2>
@@ -189,9 +190,9 @@ export default function Home() {
                 </Card>
               ))}
             </div>
-          </section>
+          </AnimatedSection>
 
-          <section id="projects">
+          <AnimatedSection id="projects">
             <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-primary">
               <BookOpen className="h-8 w-8" /> Projects
             </h2>
@@ -200,9 +201,9 @@ export default function Home() {
                 <ProjectCard key={index} project={project} />
               ))}
             </div>
-          </section>
+          </AnimatedSection>
 
-          <section id="skills">
+          <AnimatedSection id="skills">
             <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-primary">
               <Terminal className="h-8 w-8" /> Technical Skills
             </h2>
@@ -214,9 +215,9 @@ export default function Home() {
                 <SkillCategory title="Problem Solving" skills={technicalSkills.problem_solving} />
               </CardContent>
             </Card>
-          </section>
+          </AnimatedSection>
 
-          <section id="contact">
+          <AnimatedSection id="contact">
             <h2 className="mb-8 text-center text-3xl font-bold tracking-tight text-primary">
                 Get in Touch
             </h2>
@@ -231,7 +232,7 @@ export default function Home() {
                     <ContactForm />
                 </CardContent>
             </Card>
-          </section>
+          </AnimatedSection>
         </div>
       </main>
 
