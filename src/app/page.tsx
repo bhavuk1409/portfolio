@@ -1,3 +1,4 @@
+
 import {
   Award,
   BookOpen,
@@ -21,6 +22,7 @@ import {
 import { LinkedinIcon } from "@/components/icons";
 import { ProjectCard } from "@/components/project-card";
 import { ContactForm } from "@/components/contact-form";
+import { AnimatedCode } from "@/components/animated-code";
 
 const personalInfo = {
   name: "Bhavuk Agrawal",
@@ -116,74 +118,95 @@ const achievements = [
   "Regularly solve DSA and competitive programming challenges on platforms like LeetCode.",
 ];
 
+const navLinks = [
+  { href: '#about', label: 'About' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#education', label: 'Education' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact', label: 'Contact' },
+];
+
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
-      <main className="container mx-auto max-w-5xl flex-1 px-4 py-12 md:px-6 md:py-16">
-        <header className="mb-12 text-center md:text-left">
-          <h1 className="font-headline text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary">
-            {personalInfo.name}
-          </h1>
-          <p className="mt-2 text-lg text-muted-foreground md:text-xl">
-            AI & Machine Learning Engineer | Full-Stack Developer
-          </p>
-          <div className="mt-4 flex justify-center md:justify-start items-center gap-4 text-muted-foreground">
-            <div className="flex items-center gap-2">
-              <MapPin className="h-4 w-4" />
-              <span>{personalInfo.location}</span>
+    <div className="flex min-h-screen flex-col bg-background text-foreground">
+      <div className="fixed top-0 left-0 w-full h-full bg-grid-pattern -z-10" />
+
+      <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-sm">
+        <div className="container mx-auto flex h-16 max-w-6xl items-center justify-between px-4 md:px-6">
+          <a href="#" className="text-2xl font-bold text-cyan-400">
+            {personalInfo.name.split(' ')[0].toUpperCase()}
+          </a>
+          <nav className="hidden space-x-6 text-sm font-medium md:flex">
+            {navLinks.map(link => (
+              <a key={link.href} href={link.href} className="transition-colors hover:text-cyan-400">
+                {link.label.toUpperCase()}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </header>
+
+      <main className="container mx-auto max-w-6xl flex-1 px-4 py-12 md:px-6 md:py-24">
+        <section id="hero" className="grid grid-cols-1 gap-12 md:grid-cols-2 items-center min-h-[calc(100vh-12rem)]">
+          <div className="space-y-6">
+            <p className="text-2xl">Hello,</p>
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
+              This is <span className="text-cyan-400">{personalInfo.name}</span>, I'm a Professional Software Developer.
+            </h1>
+            <div className="flex gap-4">
+               <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-cyan-400">
+                <Github size={28} />
+              </a>
+               <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="text-muted-foreground transition-colors hover:text-cyan-400">
+                <LinkedinIcon className="h-7 w-7" />
+              </a>
+              <a href={`mailto:${personalInfo.email}`} aria-label="Email" className="text-muted-foreground transition-colors hover:text-cyan-400">
+                <Mail size={28} />
+              </a>
+            </div>
+            <div className="flex gap-4">
+              <Button asChild size="lg">
+                <a href="#contact">Contact Me</a>
+              </Button>
+              <Button asChild variant="secondary" size="lg">
+                <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Get Resume</a>
+              </Button>
             </div>
           </div>
-          <div className="mt-6 flex justify-center md:justify-start gap-2">
-            <Button variant="outline" size="icon" asChild>
-              <a href={`mailto:${personalInfo.email}`} aria-label="Email" className="transition-transform duration-300 hover:scale-110">
-                <Mail />
-              </a>
-            </Button>
-            <Button variant="outline" size="icon" asChild>
-              <a href={`tel:${personalInfo.phone}`} aria-label="Phone" className="transition-transform duration-300 hover:scale-110">
-                <Phone />
-              </a>
-            </Button>
-            <Button variant="outline" size="icon" asChild>
-              <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="transition-transform duration-300 hover:scale-110">
-                <Github />
-              </a>
-            </Button>
-            <Button variant="outline" size="icon" asChild>
-              <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="transition-transform duration-300 hover:scale-110">
-                <LinkedinIcon />
-              </a>
-            </Button>
+          <div>
+            <AnimatedCode name={personalInfo.name} skills={[...technicalSkills.web_backend, ...technicalSkills.ml_ai]} />
           </div>
-        </header>
+        </section>
 
-        <div className="grid grid-cols-1 gap-12">
+
+        <div className="space-y-24">
           <section id="about">
-             <h2 className="mb-6 text-2xl font-bold tracking-tight text-primary">
-                <a href="#about" className="section-header-link">About Me</a>
+             <h2 className="mb-8 text-3xl font-bold tracking-tight text-cyan-400">
+                About Me
              </h2>
-            <p className="text-lg leading-relaxed text-foreground/90">
+            <p className="text-lg leading-relaxed text-foreground/80">
               {personalInfo.bio}
             </p>
           </section>
 
           <section id="experience">
-            <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold tracking-tight text-primary">
-              <Briefcase className="h-6 w-6" /> <a href="#experience" className="section-header-link">Work Experience</a>
+            <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-cyan-400">
+              <Briefcase className="h-8 w-8" /> Work Experience
             </h2>
-            <div className="space-y-6">
+            <div className="space-y-8 relative border-l-2 border-cyan-400/30">
               {workExperience.map((exp, index) => (
-                <Card key={index} className="transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
-                  <CardHeader>
+                <Card key={index} className="relative pl-8 md:pl-12 bg-transparent border-0 shadow-none before:content-[''] before:absolute before:left-[-9px] before:top-1 before:w-4 before:h-4 before:rounded-full before:bg-cyan-400">
+                  <CardHeader className="p-0">
                     <div className="flex flex-col sm:flex-row justify-between sm:items-center">
-                      <CardTitle>{exp.role}</CardTitle>
-                      <Badge variant="secondary" className="mt-2 sm:mt-0">{exp.duration}</Badge>
+                      <CardTitle className="text-2xl">{exp.role}</CardTitle>
+                      <Badge variant="outline" className="mt-2 sm:mt-0 border-cyan-400/50 text-cyan-400">{exp.duration}</Badge>
                     </div>
-                    <CardDescription>
+                    <CardDescription className="text-lg">
                       {exp.company} - {exp.location}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent>
+                  <CardContent className="p-0 mt-4">
                     <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
                       {exp.points.map((point, i) => (
                         <li key={i}>{point}</li>
@@ -196,10 +219,10 @@ export default function Home() {
           </section>
 
           <section id="projects">
-            <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold tracking-tight text-primary">
-              <BookOpen className="h-6 w-6" /> <a href="#projects" className="section-header-link">Projects</a>
+            <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-cyan-400">
+              <BookOpen className="h-8 w-8" /> Projects
             </h2>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
               {projects.map((project, index) => (
                 <ProjectCard key={index} project={project} userSkills={technicalSkills.all} />
               ))}
@@ -207,10 +230,10 @@ export default function Home() {
           </section>
 
           <section id="skills">
-            <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold tracking-tight text-primary">
-              <Terminal className="h-6 w-6" /> <a href="#skills" className="section-header-link">Technical Skills</a>
+            <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-cyan-400">
+              <Terminal className="h-8 w-8" /> Technical Skills
             </h2>
-            <Card className="transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
+            <Card className="bg-card/50">
               <CardContent className="p-6 space-y-6">
                 <SkillCategory title="Programming Languages" skills={technicalSkills.languages} />
                 <SkillCategory title="Machine Learning & AI" skills={technicalSkills.ml_ai} />
@@ -221,18 +244,18 @@ export default function Home() {
           </section>
 
           <section id="education">
-            <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold tracking-tight text-primary">
-              <GraduationCap className="h-6 w-6" /> <a href="#education" className="section-header-link">Education</a>
+            <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-cyan-400">
+              <GraduationCap className="h-8 w-8" /> Education
             </h2>
-            <div className="space-y-6">
+            <div className="space-y-8">
               {education.map((edu, index) => (
-                <Card key={index} className="transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
+                <Card key={index} className="bg-card/50">
                   <CardHeader>
-                    <CardTitle>{edu.institution}</CardTitle>
-                    <CardDescription>{edu.location}</CardDescription>
+                    <CardTitle className="text-2xl">{edu.institution}</CardTitle>
+                    <CardDescription className="text-lg">{edu.location}</CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p>{edu.degree}</p>
+                    <p className="text-lg">{edu.degree}</p>
                     <p className="text-muted-foreground">{edu.cgpa}</p>
                     <p className="text-sm text-muted-foreground">{edu.duration}</p>
                   </CardContent>
@@ -242,14 +265,14 @@ export default function Home() {
           </section>
           
           <section id="achievements">
-            <h2 className="mb-6 flex items-center gap-3 text-2xl font-bold tracking-tight text-primary">
-              <Award className="h-6 w-6" /> <a href="#achievements" className="section-header-link">Achievements</a>
+            <h2 className="mb-8 flex items-center gap-3 text-3xl font-bold tracking-tight text-cyan-400">
+              <Award className="h-8 w-8" /> Achievements
             </h2>
-            <Card className="transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
+            <Card className="bg-card/50">
               <CardContent className="p-6">
-                <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
+                <ul className="list-disc space-y-3 pl-5 text-muted-foreground">
                   {achievements.map((ach, i) => (
-                    <li key={i}>{ach}</li>
+                    <li key={i} className="text-lg">{ach}</li>
                   ))}
                 </ul>
               </CardContent>
@@ -257,12 +280,12 @@ export default function Home() {
           </section>
 
           <section id="contact">
-            <h2 className="mb-6 text-center text-2xl font-bold tracking-tight text-primary">
-                <a href="#contact" className="section-header-link">Get in Touch</a>
+            <h2 className="mb-8 text-center text-3xl font-bold tracking-tight text-cyan-400">
+                Get in Touch
             </h2>
-            <Card className="max-w-2xl mx-auto transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
+            <Card className="max-w-2xl mx-auto bg-card/50">
                 <CardHeader>
-                    <CardTitle>Contact Me</CardTitle>
+                    <CardTitle className="text-2xl">Contact Me</CardTitle>
                     <CardDescription>
                         Have a question or want to work together? Feel free to reach out.
                     </CardDescription>
@@ -284,10 +307,10 @@ export default function Home() {
 
 const SkillCategory = ({ title, skills }: { title: string; skills: string[] }) => (
   <div>
-    <h3 className="mb-3 text-lg font-semibold text-foreground/90">{title}</h3>
-    <div className="flex flex-wrap gap-2">
+    <h3 className="mb-4 text-xl font-semibold text-foreground/90">{title}</h3>
+    <div className="flex flex-wrap gap-3">
       {skills.map((skill, index) => (
-        <Badge key={index} variant="secondary" className="font-mono text-sm transition-transform duration-300 hover:scale-110 cursor-pointer">{skill}</Badge>
+        <Badge key={index} variant="secondary" className="font-mono text-sm">{skill}</Badge>
       ))}
     </div>
   </div>

@@ -62,7 +62,7 @@ async function generateStatementAction(
 function GenerateButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" variant="outline" size="sm" disabled={pending} className="transition-transform duration-300 hover:scale-105">
+    <Button type="submit" variant="outline" size="sm" disabled={pending} className="border-cyan-400/50 text-cyan-400 hover:bg-cyan-400 hover:text-background">
       {pending ? (
         <>
           <Loader2 className="mr-2 h-4 w-4 animate-spin" />
@@ -82,18 +82,18 @@ export function ProjectCard({ project, userSkills }: ProjectCardProps) {
   const [state, formAction] = useActionState(generateStatementAction, {});
 
   return (
-    <Card className="flex h-full flex-col transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg">
+    <Card className="flex h-full flex-col bg-card/50 transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/10">
       <CardHeader>
         <div className="flex justify-between items-start">
-            <CardTitle className="font-headline">{project.title}</CardTitle>
-            <Badge variant="outline">{project.year}</Badge>
+            <CardTitle className="font-headline text-2xl">{project.title}</CardTitle>
+            <Badge variant="outline" className="border-cyan-400/50 text-cyan-400">{project.year}</Badge>
         </div>
         <CardDescription>{project.description}</CardDescription>
       </CardHeader>
       <CardContent className="flex-grow space-y-4">
         <div className="flex flex-wrap gap-2">
           {project.tech.map((tech, index) => (
-            <Badge key={index} variant="secondary" className="font-code transition-transform duration-300 hover:scale-110 cursor-pointer">
+            <Badge key={index} variant="secondary" className="font-code bg-muted text-muted-foreground">
               {tech}
             </Badge>
           ))}
@@ -101,13 +101,13 @@ export function ProjectCard({ project, userSkills }: ProjectCardProps) {
       </CardContent>
       <CardFooter className="flex-col items-start gap-4">
         <div className="flex gap-2">
-          <Button variant="default" asChild size="sm" className="transition-transform duration-300 hover:scale-105">
+          <Button asChild size="sm">
             <a href={project.repo} target="_blank" rel="noopener noreferrer">
               <Github className="mr-2 h-4 w-4" /> GitHub
             </a>
           </Button>
           {project.demo && (
-            <Button variant="secondary" asChild size="sm" className="transition-transform duration-300 hover:scale-105">
+            <Button variant="secondary" asChild size="sm">
               <a href={project.demo} target="_blank" rel="noopener noreferrer">
                 <LinkIcon className="mr-2 h-4 w-4" /> Live Demo
               </a>
@@ -123,10 +123,10 @@ export function ProjectCard({ project, userSkills }: ProjectCardProps) {
             <GenerateButton />
           </form>
           {state.statement && (
-            <Alert className="mt-4 border-primary/50 bg-primary/10">
-              <Lightbulb className="h-4 w-4 text-primary" />
-              <AlertTitle className="text-primary">AI-Generated Insight</AlertTitle>
-              <AlertDescription className="text-primary-foreground/80">{state.statement}</AlertDescription>
+            <Alert className="mt-4 border-cyan-400/30 bg-cyan-400/10 text-cyan-400">
+              <Lightbulb className="h-4 w-4 text-cyan-400" />
+              <AlertTitle>AI-Generated Insight</AlertTitle>
+              <AlertDescription className="text-cyan-400/80">{state.statement}</AlertDescription>
             </Alert>
           )}
           {state.error && (
