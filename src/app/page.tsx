@@ -126,7 +126,7 @@ export default function Home() {
           <div className="space-y-6">
             <p className="text-2xl">Hello,</p>
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-              This is <span className="text-primary">{personalInfo.name}</span>, I'm a Professional Software Developer.
+              This is <span className="text-primary">{personalInfo.name}</span>, I'm Passionate About AI, and Solving Real-World Problems.
             </h1>
             <div className="flex gap-4">
                <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-primary">
