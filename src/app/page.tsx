@@ -30,9 +30,9 @@ const personalInfo = {
   email: "bhavukagrawal1409@gmail.com",
   phone: "+917060802357",
   github: "https://github.com/bhavuk1409",
-  linkedin: "https://www.linkedin.com/in/bhavuk-agrawal-b48115288",
+  linkedin: "https://www.linkedin.com/in/bhavukagrawal1409/",
   location: "Greater Noida, Uttar Pradesh, India",
-  bio: "A passionate and driven Computer Science student with a strong foundation in AI/ML, web development, and competitive programming. I thrive on solving complex problems and building innovative solutions that push the boundaries of technology.",
+  bio: "A passionate and driven Computer Science student with a strong foundation in AI/ML, Gen Ai, and competitive programming. I thrive on solving complex problems and building innovative solutions that push the boundaries of technology.",
 };
 
 const workExperience = [
