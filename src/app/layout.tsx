@@ -8,6 +8,9 @@ import { GeistMono } from 'geist/font/mono';
 export const metadata: Metadata = {
   title: "Bhavuk's Portfolio",
   description: 'Portfolio of Bhavuk Agrawal,Passionate About AI, and Solving Real-World Problems.',
+  icons: {
+    icon: [],
+  },
 };
 
 export default function RootLayout({
