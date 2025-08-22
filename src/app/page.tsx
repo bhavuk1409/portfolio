@@ -144,7 +144,7 @@ export default function Home() {
                 <a href="#contact">Contact Me</a>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <a href="/BHAVUK_AG_RESUME_UPDATED.docx" download>Get Resume</a>
+                <a href="public/BHAVUK_AG_RESUME_UPDATED.pdf" download>Get Resume</a>
               </Button>
             </div>
           </div>
@@ -155,7 +155,7 @@ export default function Home() {
 
 
         <div className="space-y-24">
-          <AnimatedSection id="about">
+          <AnimatedSection id="about" className="mt-20">
              <h2 className="mb-8 text-3xl font-bold tracking-tight text-primary">
                 About Me
              </h2>
