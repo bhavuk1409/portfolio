@@ -144,7 +144,7 @@ export default function Home() {
                 <a href="#contact">Contact Me</a>
               </Button>
               <Button asChild variant="secondary" size="lg">
-                <a href="public/BHAVUK_AG_RESUME_UPDATED.pdf" download>Get Resume</a>
+                <a href="/BHAVUK_AG_RESUME_UPDATED.pdf" download>Get Resume</a>
               </Button>
             </div>
           </div>
