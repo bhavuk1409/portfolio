@@ -86,7 +86,7 @@ const projects = [
 
 const technicalSkills = {
   languages: ["C++", "Python", "Java", "JavaScript"],
-  ml_ai: ["Computer Vision", "LLMs", "Generative AI", "LangChain", "Langraph", "Langsmith", "Vector DBs", "RAG", "TensorFlow", "PyTorch", "NLP"],
+  ml_ai: ["Deep learning","Computer Vision", "LLMs", "Generative AI", "LangChain", "Langraph", "Langsmith", "Vector DBs", "RAG", "TensorFlow", "PyTorch", "NLP"],
   web_backend: ["FastAPI", "MongoDB", "AWS", "SQL", "React"],
   problem_solving: ["Data Structure & Algorithms", "Competitive Programming"],
   get all() {
