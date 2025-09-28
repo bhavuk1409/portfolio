@@ -82,6 +82,13 @@ const projects = [
     repo: "https://github.com/bhavuk1409/Object-Detection-Using-Yolo",
     tech: ["YOLOv8", "Computer Vision", "Python", "OpenCV"],
   },
+  {
+  "title": "AI PPT Maker using LangChain & LangGraph (MCPS)",
+  "year": "2025",
+  "description": "Built an AI-powered presentation generator like Gamma, using LangChain + LangGraph workflows for outline generation, content drafting, and PPT export; added AI-designed templates and image integration.",
+  "repo": "",
+  "tech": ["LangChain", "LangGraph", "Groq", "OpenAI", "RAG", "python-pptx", "Stable Diffusion", "Gemini", "FastAPI", "React", "shadcn/ui", "Matplotlib"]
+}
 ];
 
 const technicalSkills = {
