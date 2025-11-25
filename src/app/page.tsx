@@ -56,45 +56,41 @@ const projects = [
   {
     title: "AI-Powered Real-Time Video Conferencing",
     year: "2025",
-    description: "Built a platform with real-time multilingual subtitles (Whisper), auto-summarization (BART), and a RAG chatbot (LLaMA + LangChain) on AWS + WebRTC; optimized latency by ~40%.",
+    description:
+      "Built a real-time meeting system with multilingual subtitles (Whisper), topic-wise summarization (BART), and a RAG assistant (LLaMA + LangChain) using AWS + WebRTC. Reduced end-to-end latency by ~40% through optimized audio/video pipelines.",
     repo: "https://github.com/bhavuk1409/intellimeet_updated",
-    tech: ["Whisper", "BART", "LLaMA", "LangChain", "AWS", "WebRTC", "GenAI"],
   },
+
   {
     title: "Radiology Report Analysis with Integrated Chatbot",
     year: "2025",
-    description: "Automated radiology report parsing and integrated a LLaMA + LangChain chatbot for clinician Q&A; deployed on Streamlit for secure real-time use.",
+    description:
+      "Automated structured extraction from radiology reports and integrated a clinician Q&A chatbot. Deployed as a secure, real-time Streamlit tool for medical workflows.",
     repo: "https://github.com/bhavuk1409/my-ai-radiologist",
     demo: "https://radimate.streamlit.app/",
-    tech: ["LLaMA", "LangChain", "Streamlit", "GenAI", "NLP"],
   },
+
   {
-    title: "Speech-to-ASL (American Sign Language) Translator",
-    year: "2024",
-    description: "Converted Gujarati speech into ASL video using Azure Speech/Translate, Stanza NLP, MoviePy with a Gradio UI for real-time translation.",
-    repo: "https://github.com/bhavuk1409/Speech_to_ASL",
-    tech: ["Azure Speech", "Stanza NLP", "MoviePy", "Gradio", "NLP"],
+    title: "R-Search: Reinforcement Learning for Multi-Source Search",
+    year: "2025",
+    description:
+      "Implemented a GRPO-based RL fine-tuning system with multi-source retrieval and structured reasoning constraints. Achieved +25–30% gains on HotpotQA-hard, +40% better format consistency, and ~35% lower VRAM usage.",
+    repo: "https://github.com/bhavuk1409/llm-reasoning-search",
   },
+
   {
-    title: "Football Game Analysis",
-    year: "2024",
-    description: "Developed a YOLOv8-based CV system to track players/ball, compute speeds, possession, coverage maps, and deliver near real-time analytics.",
-    repo: "https://github.com/bhavuk1409/Object-Detection-Using-Yolo",
-    tech: ["YOLOv8", "Computer Vision", "Python", "OpenCV"],
+    title: "LLM-Enhanced RL Trading System",
+    year: "2025",
+    description:
+      "Created a hybrid PPO + multi-agent LLM trading pipeline using technical, fundamental, sentiment, and risk agents. Delivered +18–25% higher returns than PPO baseline with ~40% lower action volatility.",
+    repo: "https://github.com/bhavuk1409/llm-rl-trading",
   },
-  {
-  "title": "AI PPT Maker using LangChain & LangGraph (MCPS)",
-  "year": "2025",
-  "description": "Built an AI-powered presentation generator like Gamma, using LangChain + LangGraph workflows for outline generation, content drafting, and PPT export; added AI-designed templates and image integration.",
-  "repo": "",
-  "tech": ["LangChain", "LangGraph", "Groq", "OpenAI", "RAG", "python-pptx", "Stable Diffusion", "Gemini", "FastAPI", "React", "shadcn/ui", "Matplotlib"]
-}
 ];
 
 const technicalSkills = {
   languages: ["C++", "Python", "Java", "JavaScript"],
   ml_ai: ["Deep learning","Computer Vision", "LLMs", "Generative AI", "LangChain", "Langraph", "Langsmith", "Vector DBs", "RAG", "TensorFlow", "PyTorch", "NLP"],
-  web_backend: ["FastAPI", "MongoDB", "AWS", "SQL", "React"],
+  web_backend: ["FastAPI", "MongoDB", "AWS", "SQL", "React", "Docker"],
   problem_solving: ["Data Structure & Algorithms", "Competitive Programming"],
   get all() {
     return [...this.languages, ...this.ml_ai, ...this.web_backend, ...this.problem_solving];
