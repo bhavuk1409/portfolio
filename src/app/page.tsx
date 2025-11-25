@@ -57,7 +57,7 @@ const projects = [
     title: "AI-Powered Real-Time Video Conferencing",
     year: "2025",
     description:
-      "Built a real-time meeting system with multilingual subtitles (Whisper), topic-wise summarization (BART), and a RAG assistant (LLaMA + LangChain) using AWS + WebRTC. Reduced end-to-end latency by ~40% through optimized audio/video pipelines.",
+      "Built a real-time meeting system with multilingual subtitles (Whisper), topic-wise summarization (BART), and a RAG assistant (LLaMA + LangChain) using AWS + WebRTC.",
     repo: "https://github.com/bhavuk1409/intellimeet_updated",
   },
 
