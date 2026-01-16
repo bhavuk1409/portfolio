@@ -2,6 +2,9 @@
 'use server';
 
 import { z } from 'zod';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters.'),
@@ -34,15 +37,43 @@ export async function submitContactForm(
     };
   }
 
-  // In a real app, you would integrate with an email service (e.g., Resend, SendGrid)
-  // or save the message to a database. For this example, we'll just log it.
-  console.log('New contact form submission:');
-  console.log('Name:', validatedFields.data.name);
-  console.log('Email:', validatedFields.data.email);
-  console.log('Message:', validatedFields.data.message);
+  const { name, email, message } = validatedFields.data;
 
-  return {
-    message: 'Thank you for your message! I will get back to you soon.',
-    errors: null,
-  };
+  try {
+    // Send email using Resend
+    await resend.emails.send({
+      from: 'Portfolio Contact <onboarding@resend.dev>', // Use your verified domain
+      to: ['bhavukagrawal1409@gmail.com'],
+      replyTo: email,
+      subject: `New Contact Form Message from ${name}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message.replace(/\n/g, '<br>')}</p>
+      `,
+      text: `
+        New Contact Form Submission
+        
+        Name: ${name}
+        Email: ${email}
+        
+        Message:
+        ${message}
+      `,
+    });
+
+    return {
+      message: 'Thank you for your message! I will get back to you soon.',
+      errors: null,
+    };
+  } catch (error) {
+    console.error('Failed to send email:', error);
+    return {
+      errors: {
+        message: ['Failed to send message. Please try again later.'],
+      },
+    };
+  }
 }
