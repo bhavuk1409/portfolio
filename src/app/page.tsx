@@ -96,6 +96,7 @@ const projects = [
     description:
       "Created a hybrid PPO + multi-agent LLM trading pipeline using technical, fundamental, sentiment, and risk agents. Delivered +18–25% higher returns than PPO baseline with ~40% lower action volatility.",
     repo: "https://github.com/bhavuk1409/llm-rl-trading",
+    demo: "https://llm-trading-platform.streamlit.app",
   },
 ];
 
